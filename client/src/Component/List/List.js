@@ -32,10 +32,12 @@ function non_followers(){
 
 useEffect(() => {
     if(prop.user){
+        setfollowers([]);
+        setfollowing([]);
     axios.get(`https://api.github.com/users/${prop.user}/following`).then((res)=>{
       res.data.map(i=>{
           setfollowing(oldArray => [...oldArray, i.login]);
-          console.log(res.data)
+        //   console.log(res.data)
       });
     });
 
